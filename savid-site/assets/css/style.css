@@ -1,0 +1,323 @@
+/* ============================================
+   SAVID AROMATICS - Design System
+   ============================================ */
+:root{
+  --pink: #FFE4E2;          /* SEU NOVO ROSA: header/footer/barras */
+  --pink-soft: #FFF1F0;     /* Um tom ainda mais suave para os hovers/filtros */
+  --pink-banner: #FFE4E2;   /* Padronizado com a sua nova cor */
+  --bg:#ffffff;
+  --text:#1a1a1a;
+  --muted:#6b6b6b;
+  --border:#e9e9e9;
+  --gold:#c9a84c;
+  --font-serif:'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-sans:'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --container:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{font-family:var(--font-sans);color:var(--text);background:#fff;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+.container{max-width:var(--container);margin:0 auto;padding:0 24px}
+
+/* =========== HEADER =========== */
+.site-header{background:var(--pink);position:sticky;top:0;z-index:100}
+.header-inner{display:flex;align-items:center;gap:24px;padding:14px 24px;max-width:1400px;margin:0 auto}
+.menu-toggle{font-size:22px;color:#222}
+.brand img{height:48px;width:auto}
+.main-nav{display:flex;gap:32px;margin-left:8px}
+.main-nav a{font-size:13px;letter-spacing:.12em;font-weight:600;text-transform:uppercase;color:#1a1a1a;padding:6px 0;border-bottom:2px solid transparent;transition:border-color .2s}
+.main-nav a:hover,.main-nav a.active{border-color:#1a1a1a}
+.search{flex:1;max-width:420px;margin-left:auto;position:relative}
+.search input{width:100%;padding:10px 16px 10px 40px;border:1px solid #FFE4E2;border-radius:24px;background:#fff;font-size:13px;outline:none}
+.search .fa-magnifying-glass{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:#bbb;font-size:13px}
+.header-icons{display:flex;gap:18px;align-items:center}
+.header-icons a{font-size:18px;color:#1a1a1a;position:relative}
+.cart-count{position:absolute;top:-6px;right:-8px;background:#1a1a1a;color:#fff;font-size:10px;width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700}
+
+/* =========== BREADCRUMB =========== */
+.breadcrumb{padding:18px 24px;font-size:12px;color:var(--muted);max-width:1400px;margin:0 auto}
+.breadcrumb a{color:var(--muted)}
+.breadcrumb a:hover{color:#000}
+
+/* =========== HERO =========== */
+.hero{position:relative}
+.hero img{width:100%;height:auto;display:block}
+.hero-cta{position:absolute;left:50%;bottom:18%;transform:translateX(-50%);background:#fff;border:none;padding:10px 28px;border-radius:24px;font-size:13px;font-weight:500;letter-spacing:.05em;box-shadow:0 4px 14px rgba(0,0,0,.12);display:inline-flex;align-items:center;gap:8px}
+.hero-cta:hover{background:#f8f8f8}
+
+/* =========== BENEFITS BAR =========== */
+.benefits{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding:40px 24px;max-width:1200px;margin:0 auto}
+.benefit{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px}
+.benefit i{font-size:28px;color:#1a1a1a}
+.benefit p{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#1a1a1a;line-height:1.6;max-width:200px}
+
+/* =========== SECTION TITLE =========== */
+.section-title{font-family:var(--font-serif);font-weight:400;font-size:42px;text-align:center;margin:20px 0 30px;color:#1a1a1a}
+.section-title.small{font-size:28px;text-align:left}
+
+/* =========== PRODUCT GRID =========== */
+.product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding:0 24px 60px;max-width:1200px;margin:0 auto}
+.product-card{background:#fff;border:1px solid var(--border);border-radius:6px;overflow:hidden;display:flex;flex-direction:column;transition:transform .25s, box-shadow .25s;position:relative}
+.product-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.product-card .fav{position:absolute;top:10px;right:10px;background:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;color:#888;z-index:2;box-shadow:0 1px 3px rgba(0,0,0,.1)}
+.product-card .fav:hover{color:#e85d6b}
+.product-card a.product-link{display:block}
+.product-card img{width:100%;aspect-ratio:1/1;object-fit:cover;background:#f3eee9}
+.product-info{padding:14px 14px 16px;text-align:center;flex:1;display:flex;flex-direction:column;justify-content:space-between;gap:10px}
+.product-name{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#1a1a1a;font-weight:500;line-height:1.45;min-height:32px}
+.product-price{font-size:14px;font-weight:600;color:#1a1a1a}
+.btn-add{border:1px solid #1a1a1a;background:#fff;padding:8px 14px;font-size:11px;letter-spacing:.12em;font-weight:600;text-transform:uppercase;color:#1a1a1a;border-radius:4px;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:background .2s,color .2s;width:100%}
+.btn-add:hover{background:#1a1a1a;color:#fff}
+.btn-add i{font-size:12px}
+
+/* =========== MOSAIC =========== */
+.mosaic{padding:30px 24px 60px;max-width:1200px;margin:0 auto}
+.mosaic img{width:100%;border-radius:4px}
+
+/* =========== KITS ROW (Home) =========== */
+.kits-row{display:grid;grid-template-columns:280px 1fr 1fr 1fr;gap:24px;padding:20px 24px 60px;max-width:1200px;margin:0 auto;align-items:center}
+.kits-row .kits-intro h3{font-family:var(--font-serif);font-size:32px;font-weight:400;margin-bottom:10px}
+.kits-row .kits-intro p{font-size:13px;color:var(--muted)}
+
+/* =========== PROMO BANNER =========== */
+/* =========== PROMO BANNER =========== */
+.promo-banner {
+  width: 100%;          /* Garante que o container do banner ocupe toda a largura */
+  margin: 0;            /* Remove margens indesejadas */
+  padding: 0;           /* Remove paddings que possam encolher a imagem */
+  overflow: hidden;
+}
+
+.promo-banner img {
+  width: 100%;          /* Força a imagem a esticar de ponta a ponta */
+  height: auto;         /* Mantém a proporção correta da imagem */
+  display: block;       /* Remove espacos em branco fantasmas abaixo da imagem */
+  border-radius: 0;     /* Garante que as pontas fiquem retas nas laterais */
+}
+
+/* =========== FILTER BAR (catalog) =========== */
+.catalog-header{max-width:1200px;margin:0 auto;padding:0 24px}
+.catalog-header h1{font-family:var(--font-serif);font-size:34px;font-weight:400;margin-bottom:18px}
+.filter-bar{background:var(--pink-soft);padding:12px 18px;border-radius:6px;display:flex;align-items:center;justify-content:space-between;font-size:13px;margin-bottom:30px;gap:16px}
+.filter-bar .filter-icon{background:#1a1a1a;color:#fff;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.filter-bar .total{color:#1a1a1a}
+.filter-bar .sort{display:flex;align-items:center;gap:10px;margin-left:auto}
+.filter-bar select{border:1px solid #ddd;padding:6px 12px;border-radius:4px;background:#fff;font-size:13px}
+
+/* =========== KITS HERO IMG =========== */
+.kits-hero{max-width:1200px;margin:0 auto 24px;padding:0 24px}
+.kits-hero img{width:100%;border-radius:4px}
+
+/* =========== ABOUT (Sobre) =========== */
+.about-hero {
+  position: relative;
+  width: 100%;             /* Ocupa a largura total disponível */
+  margin: 0;               /* Remove o margin: 0 auto para não centralizar com recheio */
+  padding: 0;              /* Remove o padding lateral para a imagem encostar nos cantos */
+}
+
+.about-hero img {
+  width: 100%;             /* Agora ela segue o pai, ocupando 100% real de canto a canto */
+  display: block;
+  border-radius: 0;
+  height: auto;            /* Mantém a proporção da foto */
+  object-fit: cover;
+}
+.about-hero h1{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--font-serif);font-size:52px;letter-spacing:.3em;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.4);font-weight:400}
+.about-block{max-width:1100px;margin:60px auto;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.about-block.reverse{grid-template-columns:1fr 1fr}
+.about-block h2 {
+  font-family: var(--font-serif);
+  font-size: 38px;         /* Aumentado para dar o destaque do Figma */
+  font-weight: 400;
+  margin-bottom: 24px;     /* Mais espaço elegante antes do parágrafo */
+  color: #222;
+}
+
+.about-block p {
+  font-size: 17px;         /* Letra maior para condizer com o Figma */
+  color: #333;
+  line-height: 1.8;        /* Linhas mais espaçadas e sofisticadas */
+  margin-bottom: 20px;     /* Espaço entre os parágrafos */
+  text-align: justify;
+}
+
+.about-block img{border-radius:4px}
+.about-block img{border-radius:4px}
+.about-vision{background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url('../banner-sobre.png') center/cover;padding:80px 24px;text-align:center;color:#fff}
+.about-vision h2{font-family:var(--font-serif);font-size:34px;font-weight:400;margin-bottom:20px}
+.about-vision p{max-width:900px;margin:0 auto;font-size:14px;line-height:1.8}
+.values ul{list-style:disc;padding-left:20px;font-size:14px;line-height:2;color:#333}
+
+/* =========== PRODUCT DETAIL =========== */
+.pd-wrap{max-width:1100px;margin:20px auto 60px;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:50px}
+.pd-img{background:#f6f1ec;border-radius:6px;overflow:hidden}
+.pd-img img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.pd-info h1{font-family:var(--font-sans);font-size:18px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;color:#1a1a1a}
+.pd-rating{color:#e0b748;font-size:13px;margin-bottom:14px}
+.pd-rating span{color:var(--muted);margin-left:8px;font-size:12px}
+.pd-price{font-family:var(--font-serif);font-size:36px;font-weight:500;color:#1a1a1a;margin-bottom:4px}
+.pd-installments{font-size:12px;color:var(--muted);margin-bottom:24px}
+.pd-actions{display:flex;gap:12px;margin-bottom:24px;align-items:stretch}
+.qty{display:flex;align-items:center;border:1px solid #1a1a1a;border-radius:4px;overflow:hidden}
+.qty button{padding:0 14px;font-size:16px;color:#1a1a1a;background:#fff}
+.qty span{padding:0 16px;font-size:14px;font-weight:600}
+.pd-actions .btn-add{flex:1;background:var(--pink-soft);border-color:#1a1a1a;color:#1a1a1a;padding:12px}
+.pd-actions .btn-add:hover{background:#1a1a1a;color:#fff}
+.pd-extra{display:flex;gap:30px;padding-top:20px;border-top:1px solid var(--border);font-size:13px;color:var(--muted)}
+.pd-extra a{display:flex;align-items:center;gap:8px}
+
+/* =========== CART PAGE =========== */
+.cart-wrap{max-width:1100px;margin:30px auto 60px;padding:0 24px;display:grid;grid-template-columns:1fr 360px;gap:40px}
+.cart-items h1{font-family:var(--font-serif);font-size:34px;font-weight:400;margin-bottom:24px}
+.cart-item{display:grid;grid-template-columns:90px 1fr auto auto;gap:16px;padding:18px 0;border-bottom:1px solid var(--border);align-items:center}
+.cart-item img{width:90px;height:90px;object-fit:cover;border-radius:4px;background:#f3eee9}
+.cart-item .name{font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:500;margin-bottom:6px}
+.cart-item .price{font-size:14px;font-weight:600}
+.cart-item .remove{color:var(--muted);font-size:14px}
+.cart-item .remove:hover{color:#c0392b}
+.cart-empty{padding:60px 0;text-align:center;color:var(--muted)}
+.cart-summary{background:var(--pink-soft);border-radius:6px;padding:24px;height:fit-content;position:sticky;top:100px}
+.cart-summary h3{font-family:var(--font-serif);font-size:22px;margin-bottom:18px;font-weight:500}
+.cart-summary .line{display:flex;justify-content:space-between;font-size:14px;padding:8px 0}
+.cart-summary .total{font-size:18px;font-weight:700;padding-top:14px;border-top:1px solid #e3bdb4;margin-top:8px}
+.btn-primary{display:block;width:100%;background:#1a1a1a;color:#fff;text-align:center;padding:14px;border-radius:4px;font-size:12px;letter-spacing:.15em;text-transform:uppercase;font-weight:600;margin-top:18px;transition:background .2s}
+.btn-primary:hover{background:#333}
+.btn-secondary{display:block;width:100%;background:#fff;color:#1a1a1a;border:1px solid #1a1a1a;text-align:center;padding:12px;border-radius:4px;font-size:12px;letter-spacing:.15em;text-transform:uppercase;font-weight:600;margin-top:10px}
+
+/* =========== USER PAGE =========== */
+.user-wrap{max-width:900px;margin:40px auto 60px;padding:0 24px}
+.user-wrap h1{font-family:var(--font-serif);font-size:34px;font-weight:400;text-align:center;margin-bottom:8px}
+.user-wrap .subtitle{text-align:center;color:var(--muted);font-size:13px;margin-bottom:40px}
+.user-tabs{display:flex;gap:8px;justify-content:center;margin-bottom:30px;border-bottom:1px solid var(--border)}
+.user-tabs button{padding:12px 24px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:var(--muted);border-bottom:2px solid transparent}
+.user-tabs button.active{color:#1a1a1a;border-bottom-color:#1a1a1a}
+.user-form{max-width:420px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+.user-form label{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#1a1a1a;font-weight:600}
+.user-form input{padding:12px 14px;border:1px solid #ddd;border-radius:4px;font-size:14px;outline:none;font-family:inherit}
+.user-form input:focus{border-color:#1a1a1a}
+.user-form .row{display:flex;flex-direction:column;gap:6px}
+.user-form .forgot{font-size:12px;color:var(--muted);text-align:right}
+.user-form .forgot:hover{color:#1a1a1a}
+
+/* =========== FOOTER =========== */
+.social{padding:40px 0 24px;text-align:center}
+.social p{font-size:13px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:14px;color:#1a1a1a;font-weight:500}
+.social a{display:inline-flex;width:36px;height:36px;background:#1a1a1a;color:#fff;border-radius:50%;align-items:center;justify-content:center;margin:0 4px;font-size:14px}
+.site-footer{background:var(--pink);padding:40px 24px 20px;color:#1a1a1a}
+.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1.5fr 1fr;gap:40px;align-items:start}
+.footer-col h4{font-size:13px;letter-spacing:.05em;font-weight:600;margin-bottom:14px}
+.footer-col ul{list-style:none}
+.footer-col li{font-size:13px;padding:3px 0;color:#1a1a1a}
+.footer-col a:hover{text-decoration:underline}
+.footer-brand{text-align:right}
+.footer-brand img{height:60px;margin-left:auto;margin-bottom:14px}
+.footer-brand .pay{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}
+.footer-brand .pay i{font-size:22px;color:#1a1a1a}
+.copyright{max-width:1200px;margin:24px auto 0;padding-top:20px;border-top:1px solid rgba(0,0,0,.08);font-size:11px;text-align:center;color:#3a3a3a;line-height:1.7}
+
+/* =========== RESPONSIVE =========== */
+@media (max-width:960px){
+  .main-nav{display:none}
+  .product-grid,.benefits{grid-template-columns:repeat(2,1fr)}
+  .kits-row{grid-template-columns:1fr}
+  .pd-wrap,.cart-wrap,.about-block{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr;text-align:center}
+  .footer-brand{text-align:center}
+  .footer-brand img{margin:0 auto 14px}
+  .footer-brand .pay{justify-content:center}
+  .about-hero h1{font-size:28px}
+  .section-title{font-size:30px}
+  .promo-banner{flex-direction:column;gap:8px;text-align:center}
+}
+@media (max-width:560px){
+  .product-grid,.benefits{grid-template-columns:1fr 1fr}
+  .search{display:none}
+  .header-inner{gap:12px;padding:12px}
+  .brand img{height:38px}
+}
+/* ==========================================================================
+   SAVID AROMATICS - CORREÇÃO INTEGRADA E COMPATÍVEL
+   ========================================================================== */
+
+/* 1. Altera o menu original para FIXED de forma nativa e limpa */
+.site-header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    z-index: 1000 !important;
+}
+
+/* 2. Cria o recuo padrão no body para TODAS as páginas (Ajusta produtos, kits, etc.) */
+body {
+    padding-top: 76px !important; /* Altura exata da sua barra rosa + espaçamento */
+}
+
+/* 3. Ajuste exclusivo para a Home (index) não ter a faixa branca sob o banner */
+body[data-page="home"] {
+    padding-top: 0 !important;
+}
+
+/* 4. Reseta a seção de Visão (Quem Somos) removendo o fundo antigo */
+.about-vision {
+    background: none !important;
+    background-color: transparent !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    width: 100vw !important;
+    position: relative !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    margin: 0 !important;
+}
+
+.about-vision img {
+    width: 100% !important;
+    max-width: 100vw !important;
+    height: auto !important;
+    display: block !important;
+    border-radius: 0 !important;
+}
+
+.about-vision::before,
+.about-vision::after,
+.about-vision h2,
+.about-vision p {
+    content: none !important;
+    display: none !important;
+}
+
+/* 5. Ajuste fino na página Quem Somos para o primeiro banner colar no menu */
+body[data-page="sobre"] .about-hero {
+    margin-top: 0 !important;
+}/* =========== COMPORTAMENTO DO MENU SANDUÍCHE NO CELULAR =========== */
+@media (max-width: 960px) {
+    /* Faz o menu virar uma lista vertical escondida por padrão */
+    .main-nav {
+        display: none; 
+        position: absolute;
+        top: 100%; /* Fica logo abaixo da barra rosa */
+        left: 0;
+        width: 100%;
+        background-color: var(--pink); /* Usa o seu novo rosa #FFE4E2 */
+        flex-direction: column;
+        gap: 0 !important;
+        padding: 10px 0;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    /* Estiliza os links dentro do menu mobile */
+    .main-nav a {
+        padding: 15px 24px !important;
+        width: 100%;
+        border-bottom: 1px solid rgba(0,0,0,0.05) !important;
+    }
+
+    /* Quando o JavaScript ativa o menu, ele aparece! */
+    .main-nav.active {
+        display: flex !important;
+    }
+}

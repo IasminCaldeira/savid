@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Produto — Savid Aromatics</title>
+<link rel="icon" href="assets/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="produto">
+<div id="site-header"></div>
+<nav class="breadcrumb" id="breadcrumb"><a href="index.html">INÍCIO</a></nav>
+<section class="pd-wrap" id="pd-wrap"><div class="cart-empty">Carregando...</div></section>
+<div id="site-footer"></div>
+<script src="data/products.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  var id = new URLSearchParams(location.search).get('id');
+  var p = findProduct(id);
+  var wrap = document.getElementById('pd-wrap');
+  if(!p){ wrap.innerHTML = '<div class="cart-empty">Produto não encontrado. <a href="produtos.html">Ver catálogo</a></div>'; return; }
+  document.title = p.nome + ' - Savid Aromatics';
+  document.getElementById('breadcrumb').innerHTML = '<a href="index.html">INÍCIO</a> &gt; <a href="'+(p.categoria==='kit'?'kits.html':'produtos.html')+'">'+(p.categoria==='kit'?'KITS':'PRODUTOS')+'</a> &gt; '+p.nome.toUpperCase();
+  var qty = 1;
+  wrap.innerHTML =
+    '<div class="pd-img"><img src="'+p.imagem+'" alt="'+p.nome+'"></div>'+
+    '<div class="pd-info">'+
+      '<h1>'+p.nome+'</h1>'+
+      '<div class="pd-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><span>160 avaliações</span></div>'+
+      '<div class="pd-price">R$ '+p.preco.toFixed(2).replace('.',',')+'</div>'+
+      '<div class="pd-installments">ou 4x de R$ '+(p.preco/4).toFixed(2).replace('.',',')+' sem juros</div>'+
+      '<div class="pd-actions">'+
+        '<div class="qty"><button id="qm">-</button><span id="q">1</span><button id="qp">+</button></div>'+
+        '<button class="btn-add" id="add"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>'+
+      '</div>'+
+      '<div class="pd-extra">'+
+        '<a href="#"><i class="fa-regular fa-heart"></i> Adicionar à lista de favoritos</a>'+
+        '<a href="#"><i class="fa-solid fa-share-nodes"></i> Compartilhar</a>'+
+      '</div>'+
+    '</div>';
+  var qEl = document.getElementById('q');
+  document.getElementById('qm').onclick = function(){ qty=Math.max(1,qty-1); qEl.textContent=qty; };
+  document.getElementById('qp').onclick = function(){ qty++; qEl.textContent=qty; };
+  document.getElementById('add').onclick = function(){ addToCart(p.id, qty); };
+});
+</script>
+</body>
+</html>

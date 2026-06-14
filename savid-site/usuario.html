@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Minha Conta — Savid Aromatics</title>
+<link rel="icon" href="assets/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="usuario">
+<div id="site-header"></div>
+<section class="user-wrap">
+  <h1>Minha Conta</h1>
+  <p class="subtitle">Entre na sua conta Savid ou cadastre-se para uma experiência personalizada.</p>
+  <div class="user-tabs">
+    <button class="active" data-tab="login">Entrar</button>
+    <button data-tab="register">Criar conta</button>
+  </div>
+  <form class="user-form" id="form-login">
+    <div class="row"><label for="email">E-mail</label><input id="email" type="email" placeholder="seu@email.com" required></div>
+    <div class="row"><label for="senha">Senha</label><input id="senha" type="password" placeholder="********" required></div>
+    <a href="#" class="forgot">Esqueci minha senha</a>
+    <button type="submit" class="btn-primary">Entrar</button>
+  </form>
+  <form class="user-form" id="form-register" style="display:none">
+    <div class="row"><label>Nome completo</label><input type="text" required></div>
+    <div class="row"><label>E-mail</label><input type="email" required></div>
+    <div class="row"><label>CPF</label><input type="text" placeholder="000.000.000-00" required></div>
+    <div class="row"><label>Senha</label><input type="password" required></div>
+    <button type="submit" class="btn-primary">Criar Conta</button>
+  </form>
+</section>
+<div id="site-footer"></div>
+<script src="data/products.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+document.querySelectorAll('.user-tabs button').forEach(function(b){
+  b.addEventListener('click', function(){
+    document.querySelectorAll('.user-tabs button').forEach(function(x){x.classList.remove('active')});
+    b.classList.add('active');
+    var t = b.dataset.tab;
+    document.getElementById('form-login').style.display    = t==='login'    ? 'flex':'none';
+    document.getElementById('form-register').style.display = t==='register' ? 'flex':'none';
+  });
+});
+document.querySelectorAll('.user-form').forEach(function(f){
+  f.addEventListener('submit', function(e){ e.preventDefault(); alert('Funcionalidade demo — integre com seu backend.'); });
+});
+</script>
+</body>
+</html>

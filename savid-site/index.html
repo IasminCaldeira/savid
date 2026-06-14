@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Savid Aromatics — Velas Perfumadas Artesanais</title>
+<meta name="description" content="Velas perfumadas artesanais Savid Aromatics. Frete grátis acima de R$ 250 e parcelamento em até 10x.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="home">
+<div id="site-header"></div>
+
+<section class="hero">
+  <img src="assets/banner_hero.png" alt="Coleção Savid Aromatics — velas perfumadas">
+  <a href="produtos.html" class="hero-cta">confira <i class="fa-solid fa-arrow-right"></i></a>
+</section>
+
+<section class="benefits">
+  <div class="benefit"><i class="fa-regular fa-credit-card"></i><p>Parcelamento em até 10x</p></div>
+  <div class="benefit"><i class="fa-solid fa-truck-fast"></i><p>Frete grátis em compras acima de R$ 250</p></div>
+  <div class="benefit"><i class="fa-solid fa-tag"></i><p>15% de desconto primeira compra no site<br>Cupom: SAVID15</p></div>
+  <div class="benefit"><i class="fa-regular fa-heart"></i><p>Clube fidelidade Savid</p></div>
+</section>
+
+<h2 class="section-title">Fragrâncias Favoritas</h2>
+<div class="product-grid" id="favoritos-grid"></div>
+
+<section class="mosaic">
+  <img src="assets/oliva.png" alt="Coleção Oliva — sinta, respire e permaneça">
+</section>
+
+<section class="kits-row">
+  <div class="kits-intro">
+    <h3>Para presentear!</h3>
+    <p>Confira os nossos kits mais famosos!</p>
+  </div>
+  <div id="kits-home" style="display:contents"></div>
+</section>
+
+<section class="promo-banner">
+  <img src="assets/banner_desconto.png" alt="banner_desconto">
+</section>
+
+<div id="site-footer"></div>
+
+<script src="data/products.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', ()=>{
+  renderProducts('#favoritos-grid', p => p.categoria==='vela' && p.destaque);
+  // 3 kits home, rendered as plain cards in the grid columns
+  const kits = (SAVID_PRODUCTS||[]).filter(p=>p.categoria==='kit' && p.destaque).slice(0,3);
+  const host = document.getElementById('kits-home');
+  host.innerHTML = kits.map(k=>`
+    <article class="product-card">
+      <a class="product-link" href="produto.html?id=${k.id}"><img src="${k.imagem}" alt="${k.nome}"></a>
+      <div class="product-info">
+        <p class="product-name">${k.nome}</p>
+        <div class="product-price">R$ ${k.preco.toFixed(2).replace('.',',')}</div>
+        <button class="btn-add" onclick="addToCart('${k.id}')"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+      </div>
+    </article>`).join('');
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kits de Velas Aromáticas — Savid Aromatics</title>
+<link rel="icon" href="assets/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="kits">
+<div id="site-header"></div>
+<nav class="breadcrumb"><a href="index.html">Início</a> &gt; Kits</nav>
+<div class="catalog-header"><h1>KITS VELAS AROMÁTICAS</h1></div>
+<div class="kits-hero"><img src="assets/velaskitsbanner.png" alt="Kits Savid"></div>
+<div class="catalog-header">
+  <div class="filter-bar">
+    <div class="filter-icon"><i class="fa-solid fa-sliders"></i></div>
+    <div class="total" data-total>Total de 11 kits</div>
+    <div class="sort"><span>Ordenar por</span><select><option>Relevância</option></select></div>
+  </div>
+</div>
+<div class="product-grid" id="kits-grid"></div>
+<div id="site-footer"></div>
+<script src="data/products.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  renderProducts('#kits-grid', function(p){return p.categoria==='kit'});
+});
+</script>
+</body>
+</html>

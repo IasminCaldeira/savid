@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Carrinho — Savid Aromatics</title>
+<link rel="icon" href="assets/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="carrinho">
+<div id="site-header"></div>
+<nav class="breadcrumb"><a href="index.html">Início</a> &gt; Carrinho</nav>
+<section class="cart-wrap">
+  <div class="cart-items">
+    <h1>Meu Carrinho</h1>
+    <div id="cart-list"></div>
+  </div>
+  <aside class="cart-summary">
+    <h3>Resumo do pedido</h3>
+    <div class="line"><span>Subtotal</span><span id="subtotal">R$ 0,00</span></div>
+    <div class="line"><span>Frete</span><span id="frete">A calcular</span></div>
+    <div class="line total"><span>Total</span><span id="total">R$ 0,00</span></div>
+    <a href="#" class="btn-primary" onclick="alert('Finalizar compra — integre com seu gateway');return false;">Finalizar Compra</a>
+    <a href="produtos.html" class="btn-secondary">Continuar Comprando</a>
+  </aside>
+</section>
+<div id="site-footer"></div>
+<script src="data/products.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+function renderCart(){
+  var cart = getCart();
+  var list = document.getElementById('cart-list');
+  if(!cart.length){
+    list.innerHTML = '<div class="cart-empty">Seu carrinho está vazio. <a href="produtos.html" style="color:#1a1a1a;text-decoration:underline">Ver produtos</a></div>';
+    document.getElementById('subtotal').textContent='R$ 0,00';
+    document.getElementById('total').textContent='R$ 0,00';
+    return;
+  }
+  var subtotal = 0;
+  list.innerHTML = cart.map(function(it){
+    var p = findProduct(it.id); if(!p) return '';
+    var lineTotal = p.preco*it.qty; subtotal += lineTotal;
+    return '<div class="cart-item">'+
+      '<img src="'+p.imagem+'" alt="'+p.nome+'">'+
+      '<div><p class="name">'+p.nome+'</p><p class="price">R$ '+p.preco.toFixed(2).replace('.',',')+'</p></div>'+
+      '<div class="qty">'+
+        '<button onclick="setCartQty(\''+p.id+'\','+(it.qty-1)+');renderCart()">-</button>'+
+        '<span>'+it.qty+'</span>'+
+        '<button onclick="setCartQty(\''+p.id+'\','+(it.qty+1)+');renderCart()">+</button>'+
+      '</div>'+
+      '<button class="remove" onclick="removeFromCart(\''+p.id+'\');renderCart()"><i class="fa-solid fa-trash"></i></button>'+
+    '</div>';
+  }).join('');
+  var frete = subtotal>=250 ? 0 : 10;
+  document.getElementById('subtotal').textContent = 'R$ '+subtotal.toFixed(2).replace('.',',');
+  document.getElementById('frete').textContent = subtotal>=250 ? 'Grátis' : 'R$ '+frete.toFixed(2).replace('.',',');
+  document.getElementById('total').textContent = 'R$ '+(subtotal+frete).toFixed(2).replace('.',',');
+}
+document.addEventListener('DOMContentLoaded', renderCart);
+</script>
+</body>
+</html>
